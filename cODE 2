@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+int main() {
+    int Rows, Cols;
+
+    // Введення розміру матриці користувачем
+    printf("Введіть кількість рядків: ");
+    scanf("%d", &Rows);
+    printf("Введіть кількість стовпців: ");
+    scanf("%d", &Cols);
+
+    // Вхідні дані - матриця розміром Rows x Cols
+    double A[Rows][Cols];
+    double maxInCols[Cols]; // Попереднє оголошення масиву maxInCols
+
+    int choice;
+    do {
+        printf("\nМеню:\n");
+        printf("1. Ввести матрицю\n");
+        printf("2. Знайти максимальні елементи в кожному стовпці\n");
+        printf("3. Вийти\n");
+        printf("Виберіть опцію: ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+            case 1:
+                printf("Введіть елементи матриці %d x %d:\n", Rows, Cols);
+                for (int i = 0; i < Rows; i++) {
+                    for (int j = 0; j < Cols; j++) {
+                        printf("Елемент [%d][%d]: ", i, j);
+                        scanf("%lf", &A[i][j]);
+                    }
+                }
+                break;
+            case 2:
+                for (int j = 0; j < Cols; j++) {
+                    double max = A[0][j]; 
+                    for (int i = 1; i < Rows; i++) {
+                        if (A[i][j] > max) {
+                            max = A[i][j]; 
+                        }
+                    }
+                    maxInCols[j] = max; 
+                }
+
+          
+                printf("\nМаксимальні елементи в кожному стовпці:\n");
+                for (int j = 0; j < Cols; j++) {
+                    printf("Стовпець %d: %.2f\n", j+1, maxInCols[j]);
+                }
+                break;
+            case 3:
+                printf("До побачення!\n");
+                break;
+            default:
+                printf("Невірний вибір. Будь ласка, введіть вірну опцію.\n");
+                break;
+        }
+    } while (choice != 3);
+
+    return 0;
+}
