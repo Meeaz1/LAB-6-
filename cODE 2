@@ -2,16 +2,14 @@
 
 int main() {
     int Rows, Cols;
-
-    // Введення розміру матриці користувачем
+    
     printf("Введіть кількість рядків: ");
     scanf("%d", &Rows);
     printf("Введіть кількість стовпців: ");
     scanf("%d", &Cols);
 
-    // Вхідні дані - матриця розміром Rows x Cols
     double A[Rows][Cols];
-    double maxInCols[Cols]; // Попереднє оголошення масиву maxInCols
+    double maxInCols[Cols]; 
 
     int choice;
     do {
