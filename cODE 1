@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 int main() {
-    // Вхідні дані
     const int n = 3; 
     const int m = 4; 
     int k = 0; 
