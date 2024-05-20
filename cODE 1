@@ -15,7 +15,7 @@ int main() {
     int choice;
     
     do {
-        // Виведення меню
+    
         printf("\nМеню:\n");
         printf("1. Вивести вихідну матрицю\n");
         printf("2. Переставити стовпці матриці\n");
@@ -34,7 +34,7 @@ int main() {
                 }
                 break;
             case 2:
-                // Перестановка стовпців k та p
+            
                 for (int i = 0; i < n; i++) {
                     int temp = A[i][k]; 
                     A[i][k] = A[i][p]; 
