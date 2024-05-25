@@ -1,26 +1,34 @@
 #include <stdio.h>
 
 int main() {
-    const int n = 3; 
-    const int m = 4; 
-    int k = 0; 
-    int p = 2; 
-    int A[3][4] = {
-        {3, -2, 4, 9},
-        {0, 3, 10, 3},
-        {5, -4, -6, 0}
-    };
-    
+    int n, m; 
+    int k, p; 
     int choice;
+    int initialized = 0; 
+    int A[100][100]; 
     
     do {
-    
         printf("\nМеню:\n");
         printf("1. Вивести вихідну матрицю\n");
         printf("2. Переставити стовпці матриці\n");
         printf("3. Вийти\n");
         printf("Виберіть опцію: ");
         scanf("%d", &choice);
+        
+        if (choice == 1 || choice == 2) {
+            if (!initialized) {
+                printf("Введіть розмір матриці (n x m): ");
+                scanf("%d %d", &n, &m);
+                initialized = 1;
+            }
+            printf("Введіть елементи матриці %d x %d:\n", n, m);
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    printf("A[%d][%d] = ", i, j);
+                    scanf("%d", &A[i][j]);
+                }
+            }
+        }
         
         switch(choice) {
             case 1:
@@ -33,6 +41,12 @@ int main() {
                 }
                 break;
             case 2:
+                printf("Введіть номери стовпців для перестановки (від 0 до %d): ", m - 1);
+                scanf("%d %d", &k, &p);
+                if (k < 0 || k >= m || p < 0 || p >= m) {
+                    printf("Невірний ввід. Будь ласка, введіть коректні номери стовпців.\n");
+                    break;
+                }
             
                 for (int i = 0; i < n; i++) {
                     int temp = A[i][k]; 
